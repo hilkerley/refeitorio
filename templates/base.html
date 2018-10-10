@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Refeitorio</title>
+</head>
+<body>
+	<h1>Refeitório do IFPB</h1>
+	<ul>
+		<li><a href="{% url 'refeitorio:home' %}">Home</a></li>
+		{% if request.user.is_authenticated %}
+		<li><a href="{% url 'refeitorio:novo-aluno' %}">Cadastrar Usuário</a></li>
+		<li><a href="">Checkin</a></li>
+		<li><a href="{% url 'refeitorio:lista-alunos' %}">Lista de Refeições</a></li>
+		{% else %}
+		<li><a href="{% url 'core:login' %}">Login</a></li>
+		{% endif %}
+	</ul>
+	{% block content %}
+	{% endblock %}
+	<p>Refeitório IFPB 2018 &copy;</p>
+</body>
+</html>

@@ -1,0 +1,51 @@
+{% extends './base.html' %}
+
+{% block content %}
+<form action="{% url 'refeitorio:novo-aluno' %}" method="post">
+	{% csrf_token %}
+	<div>
+		<label>Nome do Aluno</label><br>
+		<input type="text" name="nome" placeholder="Nome do Aluno" required>
+	</div>
+	<br>
+	<div>
+		<label>Usuário de Usuário</label><br>
+		<input type="text" name="username" placeholder="Nome de Usuário" required>
+	</div>
+	<br>
+	<div>
+		<label>Senha</label><br>
+		<input type="password" name="password" placeholder="Senha" required>
+	</div>
+	<br>
+	<div>
+		<label>Matrícula</label>
+		<br>
+		<input type="text" name="matricula" placeholder="Matrícula" required>
+	</div>
+	<br>
+	<div>
+		<p>Tipo de Refeição</p>
+		<input type="checkbox" name="refeicao[0]" value="0" id="almoco">
+		<label for="almoco">Almoço</label>
+		<input type="checkbox" name="refeicao[1]" value="1" id="jantar">
+		<label for="jantar">Jantar</label>
+	</div>
+	<br>
+	<p>Dias da/das refeição/refeições</p>
+	<div>
+		<input type="checkbox" name="dia[0]" value="0" id="segunda">
+		<label for="segunda">Segunda-Feira</label>
+		<input type="checkbox" name="dia[1]" value="1" id="terca">
+		<label for="terca">Terça-Feria</label>
+		<input type="checkbox" name="dia[2]" value="2" id="quarta">
+		<label for="quarta">Quarta-Feria</label>
+		<input type="checkbox" name="dia[3]" value="3" id="quinta">
+		<label for="quinta">Quinta-Feria</label>
+		<input type="checkbox" name="dia[4]" value="4" id="sexta">
+		<label for="sexta">Sexta-Feria</label>
+	</div>
+	<br>
+	<input type="submit" name="cadastrar" value="Cadastrar">
+</form>
+{% endblock %}

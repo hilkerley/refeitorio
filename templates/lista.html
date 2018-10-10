@@ -1,0 +1,31 @@
+{% extends './base.html' %}
+
+{% block content %}
+
+<div>
+	<h1>Almoços</h1>
+</div>
+
+{% for refeicao in refeicoes %}
+{% if refeicao.tipo == 0 %}
+<p>Aluno: {{refeicao.usuario.first_name}}</p>
+<p>Tipo: Almoço</p>
+<p>Dias: </p>
+<ul>
+	{% for dia in refeicao.dias_refeicao.all %}
+	<li>{{dia.nome}}</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>Aluno: {{refeicao.usuario.first_name}}</p>
+<p>Tipo: Jantar</p>
+<p>Dias:{{refeicao.dias_refeicoes.all}} </p>
+<ul>
+	{% for dia in refeicao.dias_refeicoes.all %}
+	<li>{{dia.nome}}</li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endfor %}
+
+{% endblock %}
